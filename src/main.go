@@ -16,6 +16,22 @@ var trgFile = "../asset/faceimgs/n2_new.jpg"
 var classifierFile = "../asset/classifier/cascade_frontalface_default.xml"
 
 func main() {
+	fmt.Println("gocv-wrapper start")
+
+	webcam, _ := gocv.VideoCaptureDevice(0)
+	window := gocv.NewWindow("test window")
+	img := gocv.NewMat()
+
+	for {
+		webcam.Read(&img)
+		window.IMShow(img)
+		window.WaitKey(1)
+	}
+}
+
+func _faceReader() {
+	fmt.Println("gocv-wrapper start")
+
 	img := gocv.IMRead(srcFile, gocv.IMReadColor)
 	defer img.Close()
 
