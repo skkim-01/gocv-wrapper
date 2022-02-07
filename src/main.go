@@ -9,13 +9,22 @@ import (
 	"gocv.io/x/gocv"
 )
 
-// var srcFile = "../asset/faceimgs/nara.jpg"
-// var trgFile = "../asset/faceimgs/nara_new.jpg"
-
 var srcFile = "../asset/faceimgs/n2.jpg"
 var trgFile = "../asset/faceimgs/n2_new.jpg"
 
-var classifierFile = "../asset/classifier/cascade_frontalface_default.xml"
+var mapCascades map[string]string = nil
+
+func init() {
+	mapCascades = make(map[string]string)
+
+	mapCascades["cascade_frontalface_alt2"] = "../asset/classifier/cascade_frontalface_alt2.xml"
+	mapCascades["cascade_frontalface_alt_tree"] = "../asset/classifier/cascade_frontalface_alt_tree.xml"
+	mapCascades["cascade_frontalface_default"] = "../asset/classifier/cascade_frontalface_default.xml"
+	mapCascades["cascade_frontalface"] = "../asset/classifier/cascade_frontalface.xml"
+	mapCascades["cascade_profileface"] = "../asset/classifier/cascade_profileface.xml"
+	mapCascades["caseade_frontalface_extended"] = "../asset/classifier/caseade_frontalface_extended.xml"
+	mapCascades["casecade_frontface_alt"] = "../asset/classifier/casecade_frontface_alt.xml"
+}
 
 func main() {
 	fmt.Println("gocv-wrapper start")
